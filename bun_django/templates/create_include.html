@@ -1,0 +1,52 @@
+{% if object %}
+    <h2>Yangi ma’lumot qo‘shish</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Title (majburiy) -->
+        <div>
+            <label for="title">Title *</label><br>
+            <input 
+                type="text" 
+                id="title" 
+                name="title" 
+                required
+                placeholder="Title kiriting">
+        </div>
+        <br>
+        <!-- Description (ixtiyoriy) -->
+        <div>
+            <label for="description">Description</label><br>
+            <textarea 
+                id="description" 
+                name="description"  
+                rows="4"
+                placeholder="Description (ixtiyoriy)">
+            </textarea>
+        </div>
+        <br>
+        <!-- Is Active -->
+        <div>
+            <label>
+                <input 
+                    type="checkbox" 
+                    name="is_active" 
+                    value="1" 
+                    checked>
+                Active
+            </label>
+        </div>
+        <br>
+          <!-- Image -->
+        <div>
+            <label for="image">Rasm</label><br>
+            <input 
+                type="file" 
+                id="image" 
+                name="image"
+                accept="image/*">
+        </div>
+        <br>
+        <!-- Submit -->
+        <button type="submit">Saqlash</button>
+    </form>
+{% endif %}

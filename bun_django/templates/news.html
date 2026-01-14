@@ -1,0 +1,41 @@
+{% extends "main.html" %}
+{% load static %}
+
+{% block title %} {{ title }} {% endblock %}
+{% block title_2 %} {{ title }} {% endblock %}
+{% block title_3 %} {{ title }} {% endblock %}
+
+
+{% block content %} 
+
+{% for i in content%}
+<div class="card">      
+    <div class="card-image">
+      {% if i.image.name %}
+        <img src="{{ i.image.url }}" alt="Image">
+      {% else %}
+        <img src="" alt="Image"> 
+      {% endif %}
+    </div>
+
+    <div class="card-content">
+      <h2 class="card-title">{{ i.title }}</h2>
+        
+      <p class="card-text">
+        {{ i.description }}
+      </p>
+        
+    <div class="card-meta">last update in {{ i.time }}</div>
+     <div class="actions">
+          <a class="btn update" href="{% url 'news' %}">Update</a>
+          <a class="btn delete" href="{% url 'delete' i.id %}">Delete</a>
+    </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}  
+
+
+
+{% block url_1 %} <a href="{% url 'home' %}">🏠 Asosiy</a> {% endblock %}
+{% block url_2 %} <a href="{% url 'about' %}">ℹ About</a> {% endblock %}

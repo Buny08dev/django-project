@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'CSS/main.css' %}">
+</head>
+<body>
+<aside>
+    <div class="logo">
+        <span>&lt;/&gt;</span> Bunyod
+    </div>
+    <nav>
+        <ul>
+            <li>{% block url_1 %}{% endblock %}</li>
+            <li>{% block url_2 %}{% endblock %}</li>
+            <li><a href="{% url 'create' %}">⚙️ add </a></li>
+        </ul>
+    </nav>
+</aside>
+<main>
+  <h1>{% block title_3 %}{% endblock %}</h1>
+  <p>Xush kelibsiz {% block title_2 %}{% endblock %} sahifaga</p>
+  {% block content %}{% endblock %}
+  {% include 'create_include.html' with object=agree %}
+</main>
+
+</body>
+</html>
+
