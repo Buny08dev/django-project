@@ -27,6 +27,7 @@ def create_(request):
         # print(bunbase.objects.get(id=3).image.name)
         bunbase.objects.create(title=title,description=desc,is_active=is_active,image=image)
         return redirect('home')
+
     return render(request, "main.html",{"agree":"yes"})
 
 def delete_(request,id):
